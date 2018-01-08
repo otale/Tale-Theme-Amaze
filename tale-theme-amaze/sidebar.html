@@ -1,0 +1,63 @@
+<div class="am-u-lg-4 am-u-sm-10 am-u-lg-offset-0 am-u-sm-offset-0 sidebar-container">
+    <section>
+        <div class="sidebar-header">
+            <span class="sidebar-header-title">
+                关于博主
+            </span>
+        </div>
+        <ul class="list-inline">
+        <li>
+                <a class="am-icon-btn am-icon-qq" target="_blank" itemtype="url" href="tencent://message/?uin=891159942&Site=junichi&Menu=yes"></a>
+            </li>
+                                                <li>
+                <a class="am-icon-btn am-icon-github" target="_blank" itemtype="url" href="https://github.com/spiritree"></a>
+            </li>
+                                    <li>
+                <a class="am-icon-btn am-icon-weibo" target="_blank" itemtype="url" href="http://weibo.com/u/2283756043"></a>
+            </li>
+            <li>
+                <a class="am-icon-btn am-icon-twitter" target="_blank" itemtype="url" href="tv1314.top"></a>
+            </li>
+                                </ul>
+    </section>
+    <section>
+        <div class="sidebar-header">
+            <span class="sidebar-header-title">
+                分类列表
+            </span>
+        </div>
+        <div class="sidebar-list">
+        <ul class="sidebar-list-body sidebar-list-items">
+        <li class="sidebar-list-item">
+		#for(a : categories())
+		<a href="${site_url()}/category/${a.name}">${a.name} (${a.count})</a></li>
+        </ul>
+        #end
+        </div>
+    </section>
+    <section>
+        <div class="sidebar-header">
+            <span class="sidebar-header-title">
+                标签列表
+            </span>
+        </div>
+        <div class="tags">
+		#for(t : tags())
+                            <a href="${site_url()}/tag/${t.name}/">${t.name}</a>
+						#end	
+                    </div>
+    </section>
+    <section>
+        <div class="sidebar-header">
+            <span class="sidebar-header-title">
+                最新文章
+            </span>
+        </div>
+        <div class="sidebar-list">
+        <ul class="sidebar-list-body sidebar-list-items">
+		#for(article : recent_articles(5))
+        <li class="sidebar-list-item"><a href="${permalink()}">${title()}</a></li>
+		#end
+        </ul>
+        </div>
+		</section>
