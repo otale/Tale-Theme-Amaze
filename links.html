@@ -1,0 +1,31 @@
+#include('./header.html', {title: article.title })
+<div class="am-g am-g-fixed blog-fixed">
+    <div class="am-u-md-12 am-u-sm-12">
+        <h2 class="am-margin-top-lg">${title()}</h2>
+                  </div>
+            <div class="am-article-bd">
+                #for(link : links)
+                        <li><a href="${link.slug}" target="_blank">${link.name}</a></li>
+                        #end
+                        <blockquote><h3>链接须知</h3></blockquote>
+                                    <ul>
+                                        <li><p>请确定贵站可以稳定运营</p></li>
+                                        <li><p>原创博客、技术类博客优先</p></li>
+                                        <li><p>经常过来访问和评论，眼熟的</p></li>
+                                    </ul>
+
+                                    <blockquote><h3>友链信息</h3></blockquote>
+                                    <p>网站名称：<code>xxxxxxxxx</code></p>
+                                    <p>网站地址：<code>xxxxxx</code></p>
+
+                                    <blockquote><h3>备注</h3></blockquote>
+                                    <p>友链交换请发送邮件到 <a href="xxxxxx@xxxxx.com" target="_blank">xxxxxx@xxxxx.com</a> ，由于评论区有较多无效链接会影响工作效率，望理解</p>
+                                    <p>我会不定时对无法访问的网址进行清理，请保证自己的链接长期有效。</p>
+            </div>
+        </article>
+                
+        <hr>
+    </div>
+</div>
+<!-- content end -->
+#include('./footer.html')
