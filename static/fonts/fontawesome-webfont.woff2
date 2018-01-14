@@ -1,0 +1,4 @@
+<pre><code><h1>Path '/usr/themes/amaze/fonts/fontawesome-webfont.woff2' not found</h1>Typecho_Router_Exception: Path '/usr/themes/amaze/fonts/fontawesome-webfont.woff2' not found in /data/wwwroot/www.spiritree.me/var/Typecho/Router.php:156
+Stack trace:
+#0 /data/wwwroot/www.spiritree.me/index.php(23): Typecho_Router::dispatch()
+#1 {main}</code></pre>
