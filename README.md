@@ -1,10 +1,10 @@
 ##版权
-主题移植自Typecho博客系统的Amaze模板
-地址: https://github.com/spiritree/typecho-theme-amaze
+-主题移植自Typecho博客系统的Amaze模板
+-地址: https://github.com/spiritree/typecho-theme-amaze
 
 
 ##About Amaze Theme
-这是一个简洁风格的主题，参考了AmazeUI和[Typecho-Theme-Meizi](https://github.com/tlerbao/Typecho-Theme-Meizi)还有Jekyll的主题Project-pages和[小专栏](https://xiaozhuanlan.com/)，可以说是AmazeUI、Project-pages、小专栏混搭风格。
+-这是一个简洁风格的主题，参考了AmazeUI和[Typecho-Theme-Meizi](https://github.com/tlerbao/Typecho-Theme-Meizi)还有Jekyll的主题Project-pages和[小专栏](https://xiaozhuanlan.com/)，可以说是AmazeUI、Project-pages、小专栏混搭风格。
 
 
 ## 主题亮点
@@ -34,7 +34,7 @@
 
 
 ##bug##
-*评论模块待移植
+-评论模块待移植
 
 
  LICENSE
