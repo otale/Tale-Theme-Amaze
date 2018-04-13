@@ -1,3 +1,11 @@
+## Update
+
+2018 4/13 22:18
+1.代码优化
+
+2.更人性化的设置
+
+
 ## 版权
 主题移植自Typecho博客系统的Amaze模板
 地址: https://github.com/spiritree/typecho-theme-amaze

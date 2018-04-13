@@ -36,11 +36,12 @@
         </div>
         <div class="sidebar-list">
         <ul class="sidebar-list-body sidebar-list-items">
-        <li class="sidebar-list-item">
 		#for(a : categories())
-		<a href="${site_url()}/category/${a.name}">${a.name} (${a.count})</a></li>
+        <li class="sidebar-list-item">
+		<a href="${site_url()}/category/${a.name}">${a.name} (${a.count})</a>
+		</li>
+		#end
         </ul>
-        #end
         </div>
     </section>
     <section>
@@ -51,9 +52,8 @@
         </div>
         <div class="tags">
 		#for(t : tags())
-                            <a href="${site_url()}/tag/${t.name}/">${t.name}</a>
-						#end	
-                    </div>
+            <a href="${site_url()}/tag/${t.name}/">${t.name}</a>#end	
+        </div>
     </section>
     <section>
         <div class="sidebar-header">

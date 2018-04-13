@@ -2,33 +2,39 @@
 <div class="am-g am-g-fixed blog-fixed">
     <div class="am-u-lg-8 am-u-sm-12">
 	#for(article : articles(5).rows)
-                <article class="am-g blog-entry-article">
+            <article class="am-g blog-entry-article">
             <div class="am-u-lg-6 am-u-lg-12 am-u-sm-12 blog-entry-text post-preview">
                 <div class="topic-header">
                     <div class="pull-left">
                         <div class="blog-flex-center">
                             <div class="blog-flex0">
-                                <img src="${site_url()}/templates/themes/Amaze/static/img/logo.png" alt="" class="link avatar avatar-image">
+							#if(theme_option('logo_url') == "")
+                            <img src="${theme_url('/static/img/logo.png')}" alt="" class="link avatar avatar-image">
+							#else
+							<img src="${theme_option('logo_url')}" alt="" class="link avatar avatar-image">
+							#end
                             </div>
                             <div class="author-lockup blog-flex1">
-                                <a class="link" href="${site_url()}/archives" >Spiritree</a>
+                                <a class="link" href="/archives" >${theme_option('blog_author')}</a>
                                 <span class="in">in</span>
                                 <span class="category-name">
-                                      ${show_categories()}                                        </span>
+                                      ${show_categories()}                                        
+								</span>
                             </div>
                         </div>
                     </div>
-                <span class="pull-right time pc_time">${created('MMM dd , yyyy')}</span>
+                <span class="pull-right time pc_time">${created('MMMM dd,yyyy')}</span>
                 </div>
             <h1 class="post-index-title"><a target="_blank" itemtype="url" href="${permalink()}">"${title()}"</a></h1>
             <div class="post-content-preview">
-                ${excerpt(200)}...            </div>
+                ${excerpt(200)}...            
+			</div>
             <div class="clearfix topic-footer">
-                <span class="pull-left time mobile_time">${created('MMM dd , yyyy')}</span>
+                <span class="pull-left time mobile_time">${created('MMMM dd,yyyy')}</span>
             </div>
         </article>
         #end 
-      <ul class="am-pagination">
+		<ul class="am-pagination">
             #include('./pagination.html', {articles: articles(5), pos: 'prev', text: '<li class="am-pagination-prev"> « Prev'})
             </li>
             #include('./pagination.html', {articles: articles(5), pos: 'next', text: '<li class="am-pagination-next"> Next »'})
