@@ -1,26 +1,6 @@
-<<<<<<< HEAD
+
 ## 更新日志
-[日志](https://github.com/zoujiayu/tale-theme-amaze/master/update.txt)
-=======
-## Update
-
-2018 4/16 18:02
-
-1.修复panjf2000同学提出的bug,感谢
-
-2.修复上次更新遗留的问题。
-
-3.代码优化。
-
-
-
-2018 4/13 22:18
-
-1.代码优化
-
-2.更人性化的设置
-
->>>>>>> 2f8c99b698b355e04682f7b7c038daf4b45c7d40
+[日志](https://github.com/zoujiayu/tale-theme-amaze/blob/master/update.txt)
 
 ## 版权
 主题移植自Typecho博客系统的Amaze模板
