@@ -1,1 +1,102 @@
-<!-- 评论暂时未移植 -->
+#if(null != article)
+<div id="${article.cid ?! 0}" class="comment-container">
+    <div id="comments" class="clearfix">
+        #if(article.allowComment)
+        <span class="response">#if(null!=login_user) Hi，<a href="${login_user.home_url}" data-no-instant>${login_user.username}</a>
+            如果你想 <a href="/logout" title="注销" data-no-instant>注销</a> ? #end</span>
+		<h3 id="response">添加新评论</h3>
+				<form method="post" id="comment-form" onsubmit="return TaleComment.subComment();">
+					<input type="hidden" name="coid" id="coid"/>
+					<input type="hidden" name="cid" id="cid" value="${article.cid}"/>
+					<input type="hidden" name="csrf_token" value="${csrf_token}"/>
+					<div class="am-g">
+                    <span class="am-u-lg-4 comment-input">
+                        <label for="author" class="required">称呼</label>
+                        <input name="author" id="author" class="text" maxlength="12" value="${login_user.username ?! ''}" required/>
+                    </span>
+                    <span class="am-u-lg-4">
+                        <label for="mail" class="required">Email</label>
+                        <input type="email" name="mail" id="mail" class="text" value="${login_user.email ?! ''}" required/>
+                    </span>
+                    <span class="am-u-lg-4 comment-input">
+                        <label for="url">网站</label>
+                        <input type="url" name="url" id="url" class="text" value="${login_user.home_url ?! ''}"/>
+                    </span>
+					</div>
+					<p>
+					<label for="comment" class="required">内容</label>
+                    <textarea rows="6" cols="120%" name="content" id="comment" class="textarea" required minlength="5" maxlength="2000"></textarea>
+					</p>
+				<p>
+				<button type="submit" id="submit" class="submit am-btn am-btn-primary">提交评论</button>
+				</p>
+            </form>
+        #else
+        <span class="response">评论已关闭.</span>
+        #end
+
+        #set( comments = comments(6) )
+
+        #if(!is_empty(comments))
+        <ol class="comment-list">
+            #for(comment : comments(9999).rows)
+            <li id="comment-${comment.coid}" class="comment-body comment-parent comment-odd">
+                <div id="div-comment-${comment.coid}">
+                    <div class="comment-view" onclick="">
+						<div class="comment-header">
+							<img class="avatar" src="${gravatar(comment.mail)}?s=80&r=G&d=" width="80" height="80" />
+							<span class="comment-author"><a href="${comment.url}"target="_blank" rel="external nofollow">${comment.author}</a></span>
+						</div>
+                        <div class="comment-content">
+                            <span class="comment-author-at"></span>
+                            <p>${article(comment.content)}</p>
+                        </div>
+                        <div class="comment-meta">
+                            <time class="comment-time">${fmtdate(comment.created, 'yyyy年MM月dd日 HH:mm')}</time>							
+                            <span class="comment-reply">
+                                <a rel="nofollow" onclick="TaleComment.reply('${comment.coid}');">Reply</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                #if(comment.levels > 0)
+                <div class="comment-children">
+                    <ol class="comment-list">
+                        #for(child : comment.children)
+                        <li id="comment-${child.coid}" class="comment-body comment-child comment-level-odd comment-odd">
+                            <div id="div-comment-${child.coid}">
+                                <div class="comment-view">
+                                    <div class="comment-header">
+                                        <img class="avatar" src="${gravatar(child.mail)}?s=80&r=G&d=" title="${child.author}" width="80" height="80">
+                                        <span class="comment-author comment-by-author">
+                                            <a href="${child.url}" target="_blank" rel="external nofollow">${child.author}</a>
+                                        </span>
+                                    </div>
+                                    <div class="comment-content">
+                                        <span class="comment-author-at">
+                                            ${comment_at(child.parent)}
+                                        </span>
+                                        <p>${article(child.content)}</p>
+                                    </div>
+                                    <div class="comment-meta">
+                                        <time class="comment-time">${fmtdate(child.created, 'yyyy年MM月dd日 HH:mm')}</time>
+                                        <span class="comment-reply">
+                                            <a rel="nofollow" onclick="TaleComment.reply('${child.coid}');">Reply</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        #end
+                    </ol>
+                </div>
+                #end
+            </li>
+            #end
+        </ol>
+        
+        #end
+    </div>
+</div>
+#end
+#include('/comm/tale_comment.html')

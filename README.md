@@ -1,4 +1,18 @@
+<<<<<<< HEAD
+## 更新日志
+[日志](https://github.com/zoujiayu/tale-theme-amaze/master/update.txt)
+=======
 ## Update
+
+2018 4/16 18:02
+
+1.修复panjf2000同学提出的bug,感谢
+
+2.修复上次更新遗留的问题。
+
+3.代码优化。
+
+
 
 2018 4/13 22:18
 
@@ -6,13 +20,14 @@
 
 2.更人性化的设置
 
+>>>>>>> 2f8c99b698b355e04682f7b7c038daf4b45c7d40
 
 ## 版权
 主题移植自Typecho博客系统的Amaze模板
 地址: https://github.com/spiritree/typecho-theme-amaze
 
 
-## About Amaze Theme
+## 关于 Amaze 主题
 这是一个简洁风格的主题，参考了AmazeUI和[Typecho-Theme-Meizi](https://github.com/tlerbao/Typecho-Theme-Meizi)还有Jekyll的主题Project-pages和[小专栏](https://xiaozhuanlan.com/)，可以说是AmazeUI、Project-pages、小专栏混搭风格。
 
 
@@ -42,10 +57,6 @@
 3.在后台 -> 系统设置 -> 选择该主题，保存即可
 
 
-## bug
-评论模块待移植
-
-
  LICENSE
 
-Copyright (c) 2018-present, MoonRiver
+Copyright (c) 2018-present, 月亮河

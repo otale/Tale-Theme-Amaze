@@ -6,20 +6,41 @@
             <span class="am-icon-btn am-icon-md am-icon-github footer-icon"></span>
         </li>
     </ul>
-    <div class="blog-text-center">© 2018 <a href="${site_url()}">${site_title()}</a> 由 <a href="https://github.com/otale/tale" target="_blank">Tale</a> 强力驱动 Theme is <a href="https://github.com/zoujiayu/tale-theme-amaze" target="_blank">Amaze made by Spiritree</a>
+    <div class="blog-text-center">© 2018 <a href="/">${site_title()}</a> 由 <a href="https://github.com/otale/tale" target="_blank">Tale</a> 强力驱动 Theme is <a href="https://github.com/zoujiayu/tale-theme-amaze" target="_blank">Amaze made by Spiritree</a>
     </div>
 </footer>
-<script src="${theme_url('/static/js/jquery.slim.min.js')}"></script>
-<script src="${theme_url('/static/js/highlight.min.js')}"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <script>
     var $body=document.body;var $toggle=document.querySelector(".navbar-toggle");var $navbar=document.querySelector("#huxblog_navbar");var $collapse=document.querySelector(".navbar-collapse");var __HuxNav__={close:function(){$navbar.className=" ";setTimeout(function(){if($navbar.className.indexOf("in")<0){$collapse.style.height="0px"}},400)},open:function(){$collapse.style.height="auto";$navbar.className+=" in"}};$toggle.addEventListener("click",function(a){if($navbar.className.indexOf("in")>0){__HuxNav__.close()}else{__HuxNav__.open()}});document.addEventListener("click",function(a){if(a.target==$toggle){return}if(a.target.className=="icon-bar"){return}__HuxNav__.close()});jQuery(document).ready(function(c){var d=1170;if(c(window).width()>d){var b=c(".navbar-custom").height(),a=c(".intro-header .container").height();c(window).on("scroll",{previousTop:0},function(){var e=c(window).scrollTop(),f=c(".side-catalog");if(e<this.previousTop){if(e>0&&c(".navbar-custom").hasClass("is-fixed")){c(".navbar-custom").addClass("is-visible")}else{c(".navbar-custom").removeClass("is-visible is-fixed")}}else{c(".navbar-custom").removeClass("is-visible");if(e>b&&!c(".navbar-custom").hasClass("is-fixed")){c(".navbar-custom").addClass("is-fixed")}}this.previousTop=e;f.show();if(e>(a+41)){f.addClass("fixed")}else{f.removeClass("fixed")}})}});
 </script>
 <script>
     $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block)
+        })
         $('table').addClass('am-table')
     })
 </script>
 </body>
 </html>
-<!-- footer end -->
+#if(is_post)
+<script src="https://cdn.bootcss.com/headroom/0.9.4/headroom.min.js"></script>
+<script>
+var postDirectoryBuild=function(){var b=function a(l,h){var k=[],e=typeof h==="object",g=typeof h==="string",j,f,d;for(f=0,d=l.length;f<d;f++){j=l[f];if((j.nodeType===1||j.nodeType===9)&&(!h||e&&h.test(j.tagName.toLowerCase())||g&&j.tagName.toLowerCase()===h)){k.push(j)}}return k},c=function(e,f,r){var n=[],m=[],h,p,d,j,l,s,o,g,k,q;h=(function(i,C,A){var w=b(i.childNodes,/^h\d$/),x=[],v=1,B=1,z=0,D=1,t="directory"+(Math.random()+"").replace(/\D/,""),B,y,u;while(w.length){u=w.shift();C.push(u.innerHTML);y=+u.tagName.match(/\d/)[0];if(y>v){x.push(1);B+=1}else{if(y===B||y>B&&y<=v){x.push(0);B=B}else{if(y<B){x.push(y-B);B=y}}}z+=x[x.length-1];v=y;u.id=u.id||(t+D++);A.push(u.id)}if(z!==0&&x[0]===1){x[0]=0}return x})(e,n,m);j=p=document.createElement("ul");q=document.createElement("span");q.style="color:#F38181;font-weight:600;";q.innerHTML="目录";p.appendChild(q);dirNum=[];for(g=0,k=h.length;g<k;g++){d=h[g];if(d===1){l=document.createElement("ul");if(!j.lastElementChild){j.appendChild(document.createElement("li"))}j.lastElementChild.appendChild(l);j=l;dirNum.push(0)}else{if(d<0){d*=2;while(d++){if(d%2){dirNum.pop()}j=j.parentNode}}}dirNum[dirNum.length-1]++;s=document.createElement("li");o=document.createElement("a");o.href="#"+m[g];o.innerHTML=!r?n[g]:dirNum.join(".")+" "+n[g];s.appendChild(o);j.appendChild(s)}f.appendChild(p)};c(document.getElementById("post-content"),document.getElementById("directory"),false)};postDirectoryBuild();
+</script>
+<script>
+    var postDirectory = new Headroom(document.getElementById("directory-content"), {
+    tolerance: 5,
+    offset: 240,
+    classes: {
+        initial: "initial",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postDirectory.init();
+</script>
+#end
